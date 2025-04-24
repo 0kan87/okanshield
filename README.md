@@ -25,7 +25,7 @@ OKAN Shield, dosyalarınızı güvenli bir şekilde şifrelemek ve şifrelenmiş
 
 1. Programı başlatın:
    ```bash
-   python memory_card_encryptor.py
+   python main.py
    ```
 
 2. Şifreleme için:
