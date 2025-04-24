@@ -73,10 +73,45 @@ Bu program özgür yazılımdır ve GNU General Public License v3.0 altında da�
 
 ## Taşınabilir Uygulama Oluşturma
 
-Uygulamayı tek bir exe dosyası olarak derlemek için:
-
+### Windows için:
 ```
 pyinstaller --onefile --windowed main.py
 ```
 
-Derlenmiş uygulama `dist` klasöründe oluşturulacaktır. 
+Derlenmiş uygulama `dist` klasöründe oluşturulacaktır.
+
+### MacOS için DMG Oluşturma:
+
+1. Önce uygulamayı MacOS uygulaması olarak derleyin:
+```bash
+pyinstaller --windowed --name "OKAN Shield" --icon=icon.icns main.py
+```
+
+2. DMG oluşturmak için `create-dmg` paketini yükleyin:
+```bash
+brew install create-dmg
+```
+
+3. DMG oluşturma komutunu çalıştırın:
+```bash
+create-dmg \
+  --volname "OKAN Shield" \
+  --volicon "icon.icns" \
+  --window-pos 200 120 \
+  --window-size 800 400 \
+  --icon-size 100 \
+  --icon "OKAN Shield.app" 200 190 \
+  --hide-extension "OKAN Shield.app" \
+  --app-drop-link 600 185 \
+  "OKAN Shield.dmg" \
+  "dist/OKAN Shield.app"
+```
+
+4. DMG dosyası oluşturulacak ve Applications klasörüne sürüklenerek kurulum yapılabilecektir.
+
+Not: DMG oluşturmadan önce bir `icon.icns` dosyası oluşturmanız gerekmektedir. Bu dosyayı oluşturmak için:
+1. PNG formatında bir ikon hazırlayın
+2. `iconutil` komutunu kullanarak icns dosyasına dönüştürün:
+```bash
+iconutil -c icns icon.iconset
+``` 
