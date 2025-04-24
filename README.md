@@ -76,7 +76,7 @@ Bu program özgür yazılımdır ve GNU General Public License v3.0 altında da�
 Uygulamayı tek bir exe dosyası olarak derlemek için:
 
 ```
-pyinstaller --onefile --windowed memory_card_encryptor.py
+pyinstaller --onefile --windowed main.py
 ```
 
 Derlenmiş uygulama `dist` klasöründe oluşturulacaktır. 
